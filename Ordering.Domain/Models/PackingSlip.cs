@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Domain.Models
 {
-    public class PackagingSlip
+    public class PackingSlip
     {
 
     }

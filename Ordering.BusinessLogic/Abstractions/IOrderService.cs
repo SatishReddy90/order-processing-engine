@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ordering.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Ordering.BusinessLogic.Abstractions
 {
     public interface IOrderService
     {
-        // To do: need to add the order processing method declarations. 
+        Task<bool> ProcessOrder(Order order);
     }
 }
