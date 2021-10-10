@@ -21,6 +21,7 @@ namespace Ordering.BusinessLogic
 
             await Task.Run(() =>
             {
+                var memebership = this.CreateMembership(orderDomain.Membership);
                 this.ActivateMembership(orderDomain.Membership);
                 this.SendMembershipActivtionNotification(orderDomain.Membership);
             });
@@ -28,11 +29,20 @@ namespace Ordering.BusinessLogic
             return true;
         }
 
+        
+
         private void SendMembershipActivtionNotification(Membership membership)
         {
             string subject = "Membership activation status";
             string body = $"Hi {membership.Name}, \nYour membership has been activated successfully.";
             EmailHelper.SendEmail(subject, body, membership.EmailId);
+        }
+
+        private object CreateMembership(Membership membership)
+        {
+            // TBD: membership creation logic
+            membership.MembershipId = new Random(0).Next();
+            return membership;
         }
 
         private void ActivateMembership(Membership membership)

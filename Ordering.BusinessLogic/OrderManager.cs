@@ -21,6 +21,12 @@ namespace Ordering.BusinessLogic
                 case (int)OrderType.Book:
                     orderService = new BookOrderService();
                     break;
+                case (int)OrderType.NewMembership:
+                    orderService = new NewMembershipService();
+                    break;
+                case (int)OrderType.UpgradeMembership:
+                    orderService = new UpgradeMembershipService();
+                    break;
             }
 
             return orderService;

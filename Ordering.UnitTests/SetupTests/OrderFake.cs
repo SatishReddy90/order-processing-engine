@@ -48,6 +48,26 @@ namespace Ordering.UnitTests.SetupTests
                 },
                 Membership = new Membership()
                 {
+                    Name = "John Doe",
+                    EmailId = "john.doe@testmail.com",
+                    ValidFrom = DateTime.Now,
+                    ValidThrough = DateTime.Now.AddYears(1),
+                },
+            };
+        }
+
+        public OrderDomain GetUpgradeMembershipOrder()
+        {
+            return new OrderDomain()
+            {
+                Order = new Order()
+                {
+                    OrderId = 1,
+                    Quantity = 1,
+                    OrderType = OrderType.UpgradeMembership,
+                },
+                Membership = new Membership()
+                {
                     MembershipId = 1,
                     Name = "John Doe",
                     EmailId = "john.doe@testmail.com",
