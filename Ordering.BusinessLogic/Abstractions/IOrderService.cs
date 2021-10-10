@@ -9,6 +9,6 @@ namespace Ordering.BusinessLogic.Abstractions
 {
     public interface IOrderService
     {
-        Task<bool> ProcessOrder(Order order);
+        Task<bool> ProcessOrder(OrderDomain order);
     }
 }

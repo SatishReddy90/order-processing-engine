@@ -11,12 +11,12 @@ namespace Ordering.BusinessLogic
 {
     public class PhysicalProductOrderService : IOrderService
     {
-        public async Task<bool> ProcessOrder(Order order)
+        public async Task<bool> ProcessOrder(OrderDomain orderDomain)
         {
             await Task.Run(() =>
             {
-                var packingSlip = PackingSlipHelper.GeneratePackingSlipForShipping(order);
-                var commission = AgentCommissionHelper.GeneratePaymentCommissionToAgent(order);
+                var packingSlip = PackingSlipHelper.GeneratePackingSlipForShipping(orderDomain.Order);
+                var commission = AgentCommissionHelper.GeneratePaymentCommissionToAgent(orderDomain.Order);
             });
 
             return true;

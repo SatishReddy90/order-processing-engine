@@ -23,7 +23,7 @@ namespace Ordering.UnitTests
         public void ProcessOrder_return_true()
         {
             // Arragne
-            var order = this.orderFake.GetOrder();
+            var order = this.orderFake.GetPhysicalProductOrder();
             var orderService = new PhysicalProductOrderService();
 
             // Act

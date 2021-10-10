@@ -34,22 +34,13 @@ namespace Ordering.UnitTests.HelperTests
         public void GeneratePaymentCommissionToAgent_WhenOrderPassed_ReturnCommissionAmount()
         {
             // Arragne
-            Order order = this.orderFake.GetOrder();
+            var orderDomain = this.orderFake.GetBookOrder();
 
             // Act
-            var result = AgentCommissionHelper.GeneratePaymentCommissionToAgent(order);
+            var result = AgentCommissionHelper.GeneratePaymentCommissionToAgent(orderDomain.Order);
 
             // Assert
             Assert.IsType<double>(result);
-        }
-
-        private Order GetOrderFake()
-        {
-            return new Order()
-            {
-                OrderId = 1,
-                OrderType = OrderType.Book,
-            };
         }
     }
 }

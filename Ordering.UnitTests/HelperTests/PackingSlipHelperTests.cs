@@ -34,10 +34,10 @@ namespace Ordering.UnitTests.HelperTests
         public void GeneratePackingSlipForShipping_WhenOrderPassed_ReturnPackingSlip()
         {
             // Arragne
-            Order order = this.orderFake.GetOrder();
+            var orderDomain = this.orderFake.GetPhysicalProductOrder();
 
             // Act
-            var result = PackingSlipHelper.GeneratePackingSlipForShipping(order);
+            var result = PackingSlipHelper.GeneratePackingSlipForShipping(orderDomain.Order);
 
             // Assert
             Assert.IsType<PackingSlip>(result);
@@ -56,10 +56,10 @@ namespace Ordering.UnitTests.HelperTests
         public void GeneratePackingSlipForRoyaltyDepartment_WhenOrderPassed_ReturnPackingSlip()
         {
             // Arragne
-            Order order = this.orderFake.GetOrder();
+            var orderDomain = this.orderFake.GetBookOrder();
 
             // Act
-            var result = PackingSlipHelper.GeneratePackingSlipForShipping(order);
+            var result = PackingSlipHelper.GeneratePackingSlipForRoyaltyDepartment(orderDomain.Order);
 
             // Assert
             Assert.IsType<PackingSlip>(result);
